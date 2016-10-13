@@ -30,7 +30,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'core',
     'api',
-    'groceryapp'
+    'groceryapp',
 )
 
 MIDDLEWARE_CLASSES = (
