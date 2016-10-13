@@ -62,13 +62,17 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _app = __webpack_require__(4);
+	var _grocery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../grocery/grocery.module\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _grocery2 = _interopRequireDefault(_grocery);
+	
+	var _app = __webpack_require__(5);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var AppModule = _angular2.default.module('app', []).component('app', _app2.default);
+	var AppModule = _angular2.default.module('app', [_grocery2.default.name]).component('app', _app2.default);
 	
 	exports.default = AppModule;
 
@@ -31854,7 +31858,8 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31863,11 +31868,11 @@
 	    value: true
 	});
 	
-	var _app = __webpack_require__(5);
+	var _app = __webpack_require__(6);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _app3 = __webpack_require__(6);
+	var _app3 = __webpack_require__(7);
 	
 	var _app4 = _interopRequireDefault(_app3);
 	
@@ -31882,13 +31887,13 @@
 	exports.default = appComponent;
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
-	module.exports = "<header>\n    <nav class=\"navbar navbar-inverse navbar-static-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <span class=\"navbar-brand\">\n                    <i class=\"fa fa-qrcode\"></i> grocerizer\n                </span>\n            </div>\n        </div>\n    </nav>\n</header>\n<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n                <div class=\"jumbotron\">\n                    <h1>grocerizer</h1>\n                </div>\n        </div>\n\n        <div class=\"col-md-6\">\n            <p>Get your grocery shopping under control with grocerizer!</p>\n        </div>\n    </div>\n</div>"
+	module.exports = "<header>\n    <nav class=\"navbar navbar-inverse navbar-static-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <span class=\"navbar-brand\">\n                    <i class=\"fa fa-qrcode\"></i> grocerizer\n                </span>\n            </div>\n        </div>\n    </nav>\n</header>\n<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n                <div class=\"jumbotron\">\n                    <h1>grocerizer</h1>\n                </div>\n        </div>\n\n        <div class=\"col-md-6\">\n            <p>Get your grocery shopping under control with grocerizer!</p>\n        </div>\n    </div>\n    \n    <grocery-page />\n\n</div> <!-- end container fluid -->"
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	"use strict";
