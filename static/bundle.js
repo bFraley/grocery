@@ -66,7 +66,7 @@
 	
 	var _grocery2 = _interopRequireDefault(_grocery);
 	
-	var _app = __webpack_require__(8);
+	var _app = __webpack_require__(9);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -31864,7 +31864,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	        value: true
+	    value: true
 	});
 	
 	var _angular = __webpack_require__(2);
@@ -31875,9 +31875,15 @@
 	
 	var _groceryPage2 = _interopRequireDefault(_groceryPage);
 	
+	var _groceryApi = __webpack_require__(8);
+	
+	var _groceryApi2 = _interopRequireDefault(_groceryApi);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var GroceryModule = _angular2.default.module('grocery', []).component('groceryPage', _groceryPage2.default);
+	var GroceryModule = _angular2.default.module('grocery', ['ngResource']).config(function ($resourceProvider) {
+	    $resourceProvider.defaults.stripTrailingSlashes = false;
+	}).component('groceryPage', _groceryPage2.default).factory('groceryAPIService', _groceryApi2.default);
 	
 	exports.default = GroceryModule;
 
@@ -31913,7 +31919,7 @@
 /* 6 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n    <div class=\"col-md-8\">\n            <div class=\"jumbotron\">\n                <h1>grocerizer</h1>\n            </div>\n    </div>\n\n    <div class=\"col-md-6\">\n        <p>Get your grocery shopping under control with grocerizer!</p>\n    </div>\n</div>"
+	module.exports = "<div class=\"row\">\n    <div class=\"col-md-8\">\n            <div class=\"jumbotron\">\n                <h1>grocerizer</h1>\n            </div>\n    </div>\n\n    <div class=\"col-md-6\">\n        <p>Get your grocery shopping under control with grocerizer!</p>\n\n        <ul>\n          <li ng-repeat=\"item in groceryPageCtrl.gitem\">\n          {item}  \n          </li>\n        </ul>\n\n    </div>\n</div>"
 
 /***/ },
 /* 7 */
@@ -31925,14 +31931,43 @@
 	    value: true
 	});
 	
-	function GroceryPageController() {
+	function GroceryPageController(groceryAPIService) {
 	    var ctrl = this;
+	
+	    function getGITEMS() {
+	        groceryAPIService.gitems.get().$promise.then(function (data) {
+	            ctrl.gitems = data.results;
+	        });
+	    }
+	
+	    getGITEMS();
+	    $interval(getGITEMS, 5000);
 	}
 	
 	exports.default = GroceryPageController;
 
 /***/ },
 /* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	function groceryAPIService($resource) {
+	    var api = {
+	        gitems: $resource('/api/groceryapp/')
+	
+	    };
+	
+	    return api;
+	}
+	
+	exports.default = groceryAPIService;
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31941,11 +31976,11 @@
 	    value: true
 	});
 	
-	var _app = __webpack_require__(9);
+	var _app = __webpack_require__(10);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _app3 = __webpack_require__(10);
+	var _app3 = __webpack_require__(11);
 	
 	var _app4 = _interopRequireDefault(_app3);
 	
@@ -31960,13 +31995,13 @@
 	exports.default = appComponent;
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
 	module.exports = "<header>\n    <nav class=\"navbar navbar-inverse navbar-static-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <span class=\"navbar-brand\">\n                    <i class=\"fa fa-qrcode\"></i> grocerizer\n                </span>\n            </div>\n        </div>\n    </nav>\n</header>\n<div class=\"container-fluid\">\n    \n    \n    <grocery-page />\n\n</div> <!-- end container fluid -->"
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
 	"use strict";
