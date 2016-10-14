@@ -62,11 +62,11 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _grocery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../grocery/grocery.module\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _grocery = __webpack_require__(4);
 	
 	var _grocery2 = _interopRequireDefault(_grocery);
 	
-	var _app = __webpack_require__(5);
+	var _app = __webpack_require__(8);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -31858,7 +31858,30 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 4 */,
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	        value: true
+	});
+	
+	var _angular = __webpack_require__(2);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _groceryPage = __webpack_require__(5);
+	
+	var _groceryPage2 = _interopRequireDefault(_groceryPage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var GroceryModule = _angular2.default.module('grocery', []).component('groceryPage', _groceryPage2.default);
+	
+	exports.default = GroceryModule;
+
+/***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31868,11 +31891,61 @@
 	    value: true
 	});
 	
-	var _app = __webpack_require__(6);
+	var _groceryPage = __webpack_require__(6);
+	
+	var _groceryPage2 = _interopRequireDefault(_groceryPage);
+	
+	var _groceryPage3 = __webpack_require__(7);
+	
+	var _groceryPage4 = _interopRequireDefault(_groceryPage3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var groceryPageComponent = {
+	    template: _groceryPage2.default,
+	    controller: _groceryPage4.default,
+	    controllerAs: 'groceryPageCtrl'
+	};
+	
+	exports.default = groceryPageComponent;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"row\">\n    <div class=\"col-md-8\">\n            <div class=\"jumbotron\">\n                <h1>grocerizer</h1>\n            </div>\n    </div>\n\n    <div class=\"col-md-6\">\n        <p>Get your grocery shopping under control with grocerizer!</p>\n    </div>\n</div>"
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function GroceryPageController() {
+	    var ctrl = this;
+	}
+	
+	exports.default = GroceryPageController;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _app = __webpack_require__(9);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _app3 = __webpack_require__(7);
+	var _app3 = __webpack_require__(10);
 	
 	var _app4 = _interopRequireDefault(_app3);
 	
@@ -31887,13 +31960,13 @@
 	exports.default = appComponent;
 
 /***/ },
-/* 6 */
+/* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<header>\n    <nav class=\"navbar navbar-inverse navbar-static-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <span class=\"navbar-brand\">\n                    <i class=\"fa fa-qrcode\"></i> grocerizer\n                </span>\n            </div>\n        </div>\n    </nav>\n</header>\n<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n                <div class=\"jumbotron\">\n                    <h1>grocerizer</h1>\n                </div>\n        </div>\n\n        <div class=\"col-md-6\">\n            <p>Get your grocery shopping under control with grocerizer!</p>\n        </div>\n    </div>\n    \n    <grocery-page />\n\n</div> <!-- end container fluid -->"
+	module.exports = "<header>\n    <nav class=\"navbar navbar-inverse navbar-static-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <span class=\"navbar-brand\">\n                    <i class=\"fa fa-qrcode\"></i> grocerizer\n                </span>\n            </div>\n        </div>\n    </nav>\n</header>\n<div class=\"container-fluid\">\n    \n    \n    <grocery-page />\n\n</div> <!-- end container fluid -->"
 
 /***/ },
-/* 7 */
+/* 10 */
 /***/ function(module, exports) {
 
 	"use strict";

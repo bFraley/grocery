@@ -1,4 +1,4 @@
-import template from './sups-page.html';
+import template from './grocery-page.html';
 import GroceryPageController from './grocery-page.controller';
 
 const groceryPageComponent = {
