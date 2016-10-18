@@ -5,3 +5,11 @@ h1 {
 .jumbotron {
     text-align:center;
 }
+
+ul li {
+    list-style: none;
+}
+
+.btn {
+    margin:25px;
+}

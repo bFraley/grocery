@@ -1,6 +1,6 @@
 function groceryAPIService($resource) {
     const api = {
-        gitems: $resource('/api/groceryapp/',)
+        gitems: $resource('/api/groceryapp/')
     
     };
 

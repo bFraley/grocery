@@ -6,13 +6,22 @@
     </div>
 
     <div class="col-md-6">
+
         <p>Get your grocery shopping under control with grocerizer!</p>
 
-        <ul>
-          <li ng-repeat="item in groceryPageCtrl.gitem">
-          {item}  
-          </li>
-        </ul>
+        <button class="btn btn-md">NEW</button>
 
+        <div class="well" ng-repeat="item in groceryPageCtrl.gitems">
+            <button>EDIT</button>
+            <button>DELETE</button>
+            <ul>
+              <li><span class="qyt-field">{{ item.qty }}</span></li>
+              <li>{{item.name}}</li>
+              <li>{{item.price | currency}}</li>
+              <li><span class = "data-label">TOTAL</span>
+                  {{item.price * item.qty | currency}}
+              </li>
+            </ul>
+        </div>
     </div>
 </div>

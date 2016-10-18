@@ -1,17 +1,16 @@
  
-function GroceryPageController(groceryAPIService) {
+function GroceryPageController(groceryAPIService, $interval) {
     const ctrl = this;
 
-        function getGITEMS() {
+    function get_grocerylist_items() {
         groceryAPIService.gitems.get().$promise.then((data) => {
             ctrl.gitems = data.results;
         });
     }
 
-    getGITEMS();
-    $interval(getGITEMS, 5000);
+    get_grocerylist_items();
+    $interval(get_grocerylist_items, 5000);
 
-    
     
 
 }
